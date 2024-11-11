@@ -16,7 +16,8 @@ default_args = {
 
 # Define the API call function
 def call_api():
-    url = "https://mi-prod.dbg.com.gh/api/v1/customerInfo"  # Replace with your API URL
+    url = "http://10.70.1.17:8000/transactions-t24-erp"
+    # Replace with your API URL
     response = requests.get(url)
     if response.status_code == 200:
         print("API call successful!")
@@ -25,7 +26,7 @@ def call_api():
 
 # Define the DAG
 with DAG(
-    'CUSTOMETS_T24_ERP',
+    'TRANSACTIONS_T24_TO_ERP',
     default_args=default_args,
     description='A DAG to call an API every 2 minutes',
     schedule_interval='*/2 * * * *',
